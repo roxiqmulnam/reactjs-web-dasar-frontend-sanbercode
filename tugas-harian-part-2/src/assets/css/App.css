@@ -10,7 +10,7 @@ img[alt="sanbercode"] {
     padding: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     width: 30%;
-    margin: 40px auto;
+    margin: 0 auto;
 }
 
 .card .title{
@@ -55,4 +55,10 @@ button:hover{cursor:pointer;}
 button:active {
     background: red;
     cursor: pointer;
+}
+
+.tugas10{
+    margin: auto;
+    width: 30%;
+    line-height: 1em;
 }
