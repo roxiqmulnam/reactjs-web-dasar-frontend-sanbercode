@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
     <Tugas12 />
-    <Tugas11 />
+    {/* <Tugas11 /> */}
     {/* <Tugas10 />
     <Tugas9 /> */}
     </>
