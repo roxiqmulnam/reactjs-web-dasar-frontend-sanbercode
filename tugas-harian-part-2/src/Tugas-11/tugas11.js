@@ -22,6 +22,7 @@ const [currentIndex, setCurrentIndex] = useState(-1)
 
 // --------State-----------
 
+console.log(currentIndex)
 
 // ---------Function---------
 const handleChange = (e) =>{
@@ -36,12 +37,12 @@ const handleSubmit =(e) =>{
 
     let {nama, hargaTotal, beratTotal} = input
     let newBuah = dataBuah
-    newBuah = [...dataBuah, {nama, hargaTotal, beratTotal}]
     if (currentIndex === -1) {
-        newBuah = [...dataBuah, input]
+        newBuah = [...dataBuah, {nama, hargaTotal, beratTotal}]
       } else {
         newBuah[currentIndex] = input
        }
+    setCurrentIndex(-1)   
     setDataBuah(newBuah)
     setInput({
         nama:"",
@@ -64,7 +65,7 @@ const handleEdit = (e) => {
     let index = parseInt(e.target.value)
     let editValue = dataBuah[index]
     setInput(editValue)
-    setCurrentIndex(e.target.value)
+    setCurrentIndex(index)
 }
 
 // ---------Function---------

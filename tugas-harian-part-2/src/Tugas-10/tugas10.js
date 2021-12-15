@@ -8,7 +8,7 @@ const Tugas10 = () => {
 
     useEffect(() => {
         if(count !== 0){
-            let time = setTimeout(() => {
+        setTimeout(() => {
                 setCount(count - 1)
             }, 1000);
         } 
@@ -17,7 +17,7 @@ const Tugas10 = () => {
         }
     }, [count])
 
-    let clock = setTimeout(() => {
+        setTimeout(() => {
         setCurrentTime(new Date().toLocaleTimeString())
     });
 
