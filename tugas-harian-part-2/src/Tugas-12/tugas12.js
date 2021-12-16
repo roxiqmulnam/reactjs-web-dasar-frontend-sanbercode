@@ -96,6 +96,7 @@ const handleDelete = (e) => {
     .then((e) => {
         setFetchStatus(true)
     })
+    setCurrentId(-1)
 }
 
 const handleEdit = (e) => {
