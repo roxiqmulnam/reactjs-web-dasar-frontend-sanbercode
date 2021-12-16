@@ -1,19 +1,16 @@
 import React, {useContext} from "react";
 import { MahasiswaContext } from "./mahasiswaContext";
 
-const MahasiswaList = (props) => {
+const MahasiswaList = () => {
     const {combineState, combineFunction} = useContext(MahasiswaContext)
 
-    const {
-        dataMahasiswa, setDataMahasiswa, input, setInput,
-        fetchStatus, setFetchStatus, currentId, setCurrentId
-      } = combineState
-    const {getData, getScore, handleDelete, handleEdit} = combineFunction
+    const {dataMahasiswa} = combineState
+    const {getScore, handleDelete, handleEdit} = combineFunction
 
     return(
     <div className="list">
         <h1>Daftar Nilai Mahasiswa</h1>
-        <table class="styled-table">
+        <table className="styled-table">
             <thead>
                 <tr>
                     <th>No</th>

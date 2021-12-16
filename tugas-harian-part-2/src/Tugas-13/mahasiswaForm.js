@@ -1,18 +1,14 @@
 import React, {useContext} from "react";
 import { MahasiswaContext } from "./mahasiswaContext";
 
-const MahasiswaForm = (props) => {
+const MahasiswaForm = () => {
     const {combineState, combineFunction} = useContext(MahasiswaContext)
 
-    const {
-        dataMahasiswa, setDataMahasiswa, input, setInput,
-        fetchStatus, setFetchStatus, currentId, setCurrentId
-      } = combineState
-    const {getData, getScore, handleDelete, handleEdit, handleSubmit, handleChange} = combineFunction
+    const {input} = combineState
+    const {handleSubmit, handleChange} = combineFunction
 
 
     return(
-    <>
         <div className="list"> 
             <h1>Form Nilai Mahasiswa</h1>
             <form onSubmit={handleSubmit} className="form-input">
@@ -31,8 +27,7 @@ const MahasiswaForm = (props) => {
             <input type="submit" value="Submit"/>
             </form>
         </div>
-    </>
   )
 }
 
-export default MahasiswaForm
+export default MahasiswaForm;

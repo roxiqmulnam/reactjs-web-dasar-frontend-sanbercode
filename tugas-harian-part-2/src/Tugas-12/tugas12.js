@@ -118,7 +118,7 @@ const handleEdit = (e) => {
 return (
 <div className="list">
 <h1>Daftar Nilai Mahasiswa</h1>
-<table class="styled-table">
+<table className="styled-table">
     <thead>
         <tr>
             <th>No</th>
