@@ -1,11 +1,18 @@
-import React from "react";
-import Logo from "../assets/img/logo.png";
-import Button from "../elements/button/button";
-import Checkbox from "../elements/list/checkbox";
+import React from "react"
+import Logo from "../assets/img/logo.png"
+
+const Checkbox = (props) => {
+  return (
+    <div class="checkbox-container">
+      <input type="checkbox" /> <p>{props.list}</p>
+    </div>
+  )
+}
 
 const Tugas9 = () => {
+
   return (
-  <div className="card">
+    <div className="card">
 
       <div className="title">
         <img src={Logo} alt="sanbercode"/>
@@ -20,9 +27,8 @@ const Tugas9 = () => {
           <Checkbox list="Belajar ReactJS Dasar" />
           <Checkbox list="Belajar ReactJS Advance" />
       </div>
-          <Button btn="SEND"  />       
-  </div>
-    
+          <button className="button">Send</button>      
+    </div>
   );
 }
 

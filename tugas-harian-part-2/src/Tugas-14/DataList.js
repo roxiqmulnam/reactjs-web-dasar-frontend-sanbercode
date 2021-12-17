@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
-import { MahasiswaContext } from "./mahasiswaContext";
+import { MahasiswaContext } from "../Tugas-13/mahasiswaContext";
 
-const MahasiswaForm = () => {
+const DataList = () => {
     const {combineState, combineFunction} = useContext(MahasiswaContext)
 
     const {input} = combineState
@@ -24,10 +24,11 @@ const MahasiswaForm = () => {
             <input value={input.score} onChange={handleChange} min={0} max={100}
             type="text" name="score" placeholder="Masukan Nilai.." required/>
 
+            
             <input type="submit" value="Submit"/>
             </form>
         </div>
   )
 }
 
-export default MahasiswaForm;
+export default DataList;

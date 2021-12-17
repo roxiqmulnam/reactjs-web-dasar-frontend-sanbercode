@@ -14,7 +14,7 @@ img[alt="sanbercode"] {
 }
 
 .card{
-    padding: 10px;
+    padding: 15px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     width: 30%;
     margin: 0 auto;
@@ -25,7 +25,7 @@ img[alt="sanbercode"] {
     margin: 10px;
     display: flex;
     justify-content: center;
-    flex-direction: column;    
+    flex-direction: column;   
 }
 
 .checkbox-container{
@@ -47,22 +47,96 @@ input[type=checkbox] {
     color: #bbbb;
 }
 
-button{
+.button{
     width: 100%;
     color: white;
     background-color: #3db2ff;
-    padding: 5px;
+    padding: 10px;
     border: none;
-    margin: 3px;
 }
 
-button:hover{cursor:pointer;}
-button:active {
+.button:hover{cursor:pointer;}
+.button:active {
     background: red;
     cursor: pointer;
 }
 
 .tugas10{
-    margin: auto;
-    width: 30%;
+    margin: 20px auto;
+    width: 25%;
+}
+
+.navbar-light{
+    background-color: gray;
+}
+.navbar-dark{
+    background-color: #292929;
+}
+
+header nav{
+    width: 100%;
+    border-bottom: 2px solid #bbbb;
+}
+
+header nav li{
+    display: inline-flex;
+    padding: 15px;
+}
+
+header nav li p {
+    color: white;
+}
+
+li:hover {
+    background-color: #bbbb;
+}
+
+.btn-create{
+    background-color: #bbbb;
+    margin: 30px auto;
+    padding: 8px;
+    border-radius:0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+}
+.btn-create:hover{
+    background-color: #c9c9c9;
+    cursor: pointer;
+}
+.btn-create:active{
+    background-color: gray;
+    cursor: pointer;
+}
+
+.btn-theme{
+    color: #bae1ff;
+    text-decoration: underline;
+    
+}
+.btn-theme:hover{
+    cursor: pointer;
+}
+.btn-theme:active{
+    cursor: pointer;
+}
+
+.btn-back{
+    margin: 10px auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+    border: none;
+    background: none;
+}
+.btn-back:hover{
+    color: gray;
+    cursor: pointer;
+}
+.btn-back:active{
+    color: gray;
+    cursor: pointer;
 }

@@ -4,15 +4,13 @@ import MahasiswaForm from "./mahasiswaForm";
 import MahasiswaList from "./mahasiswaList";
 
 
-export const Mahasiswa = () => {
+export const Tugas13 = () => {
   return(
-    <>
     <MahasiswaProvider>
         <MahasiswaList />
         <MahasiswaForm />
     </MahasiswaProvider>
-    </>
   )
 }
 
-export default Mahasiswa;
+export default Tugas13;

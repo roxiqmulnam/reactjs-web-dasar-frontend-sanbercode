@@ -10,6 +10,7 @@ const MahasiswaList = () => {
     return(
     <div className="list">
         <h1>Daftar Nilai Mahasiswa</h1>
+        <h6>Use Context</h6>
         <table className="styled-table">
             <thead>
                 <tr>

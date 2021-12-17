@@ -157,15 +157,15 @@ return (
   <form onSubmit={handleSubmit} className="form-input">
     <label>Nama</label>
     <input value={input.name} onChange={handleChange} 
-    type="text" name="name" required/>
+    type="text" name="name" placeholder="Masukan Nama.." required/>
 
     <label>Mata Kuliah</label>
     <input value={input.course} onChange={handleChange} 
-    type="text" name="course" required/>
+    type="text" name="course" placeholder="Masukan Mata Kuliah.." required/>
 
     <label>Nilai</label>
     <input value={input.score} onChange={handleChange} min={0} max={100}
-    type="text" name="score" required/>
+    type="text" name="score" placeholder="Masukan Nilai.." required/>
 
     <input type="submit" value="Submit"/>
   </form>
