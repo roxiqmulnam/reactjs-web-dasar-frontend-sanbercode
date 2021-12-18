@@ -24,7 +24,7 @@ const MahasiswaForm = () => {
             <input value={input.score} onChange={handleChange} min={0} max={100}
             type="text" name="score" placeholder="Masukan Nilai.." required/>
 
-            <input type="submit" value="Submit"/>
+            <input type="submit"/>
             </form>
         </div>
   )

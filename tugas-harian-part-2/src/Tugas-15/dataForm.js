@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react"
 import { useParams } from "react-router"
-import { DataContext } from "./dataContext"
+import { DataContextnew } from "./dataContext"
 import { Link } from "react-router-dom"
 
-const DataForm = () => {
-    const {input, setInput, currentId, setCurrentId, functions } = useContext(DataContext)
+const DataFormNew = () => {
+    const {input, setInput, currentId, setCurrentId, functions } = useContext(DataContextnew)
     const { functionSubmit, functionUpdate,fetchById  } = functions
     let {Value} = useParams()
 
@@ -59,7 +59,7 @@ const DataForm = () => {
             <input type="submit"/>
             
             </form>
-            <Link to="/tugas-14">
+            <Link to="/tugas-15">
             <button className='btn-back'>Kembali</button>
             </Link>
 
@@ -67,4 +67,4 @@ const DataForm = () => {
     )
 }
 
-export default DataForm
+export default DataFormNew

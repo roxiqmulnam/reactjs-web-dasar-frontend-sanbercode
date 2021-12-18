@@ -4,9 +4,9 @@ import { useHistory } from "react-router"
 import { message } from 'antd';
 import 'antd/dist/antd.css';
 
-export const DataContext = createContext()
+export const DataContextnew = createContext()
 
-export const DataProvider = props => {
+export const DataProvidernew = props => {
     let history = useHistory()
     const [dataMahasiswa, setDataMahasiswa] = useState([])
     const [input, setInput] = useState({
@@ -74,7 +74,7 @@ export const DataProvider = props => {
                 score: data.score,
                 course: data.course
             }])
-            history.push('/tugas-14')
+            history.push('/tugas-15')
             message.success('Berhasil menambahkan data')
         })
     }
@@ -90,7 +90,7 @@ export const DataProvider = props => {
             newDataMahasiswa.course = input.course
             newDataMahasiswa.score = input.score
             setDataMahasiswa([...dataMahasiswa])
-            history.push(`/tugas-14`)
+            history.push(`/tugas-15`)
             message.success('Berhasil mengupdate data')
         })
     }
@@ -118,7 +118,7 @@ export const DataProvider = props => {
     }
 
     return (
-        <DataContext.Provider value={{
+        <DataContextnew.Provider value={{
             dataMahasiswa,
             setDataMahasiswa,
             input,
@@ -130,7 +130,7 @@ export const DataProvider = props => {
             setFetchStatus
         }}>
             {props.children}
-        </DataContext.Provider>
+        </DataContextnew.Provider>
     )
 
 }

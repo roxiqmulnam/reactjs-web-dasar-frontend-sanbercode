@@ -13,7 +13,7 @@ const CreateData = () => {
             <MahasiswaList />
             </MahasiswaProvider>
             </DataProvider>
-            <Link to="create">
+            <Link to="/create">
             <button className='btn-create'>Buat Data Nilai Mahasiswa Baru</button>
             </Link>
 

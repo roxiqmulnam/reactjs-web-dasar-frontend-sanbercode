@@ -58,7 +58,7 @@
 
 .btn-delete{
     background-color: red;
-        padding: 5px;
+    padding: 5px;
     margin-right: 5px;
 }
 .btn-delete:active {
@@ -101,5 +101,4 @@ input[type=submit]:active {
 .list h6{
     text-align: center;
     color: #bbbb;
-    margin: 10px;
 }

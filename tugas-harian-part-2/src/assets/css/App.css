@@ -93,7 +93,7 @@ li:hover {
 
 .btn-create{
     background-color: #bbbb;
-    margin: 30px auto;
+    margin: 10px auto;
     padding: 8px;
     border-radius:0.4rem;
     display: flex;
@@ -139,4 +139,23 @@ li:hover {
 .btn-back:active{
     color: gray;
     cursor: pointer;
+}
+
+.edit-btn{
+    background-color: yellow;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #c9c9c9;
+    margin-right: 10px;
+}
+
+.delete-btn{
+    background-color: red;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #c9c9c9;
+    margin-right: 10px;
+}
+
+.table-mhs{
+    width: 55%;
+    margin: 0 auto;
 }

@@ -14,7 +14,7 @@ const Nav = () => {
             
         <ul>
             <li>
-            <Link to="/tugas-9"><p>Tugas 9</p></Link>
+            <Link to="/"><p>Tugas 9</p></Link>
             </li>
             <li>
             <Link to="/tugas-10"><p>Tugas 10</p></Link>
@@ -30,6 +30,9 @@ const Nav = () => {
             </li>
             <li>
             <Link to="/tugas-14"><p>Tugas 14</p></Link>
+            </li>
+            <li>
+            <Link to="/tugas-15"><p>Tugas 15</p></Link>
             </li>
             <li
             onClick={() =>{

@@ -1,34 +1,86 @@
-import React, {useContext} from "react";
-import { MahasiswaContext } from "../Tugas-13/mahasiswaContext";
+import React, { useContext, useEffect } from "react"
+import { useHistory } from "react-router"
+import { DataContext } from "./dataContext"
 
 const DataList = () => {
-    const {combineState, combineFunction} = useContext(MahasiswaContext)
-
-    const {input} = combineState
-    const {handleSubmit, handleChange} = combineFunction
+    let history = useHistory()
 
 
-    return(
-        <div className="list"> 
-            <h1>Form Nilai Mahasiswa</h1>
-            <form onSubmit={handleSubmit} className="form-input">
-            <label>Nama</label>
-            <input value={input.name} onChange={handleChange} 
-            type="text" name="name" placeholder="Masukan Nama.." required/>
+    const { input, setInput, dataMahasiswa, functions, fetchStatus, setFetchStatus } = useContext(DataContext)
+    const { fetchData, getScore,  functionDelete, functionUpdate, functionEdit } = functions
 
-            <label>Mata Kuliah</label>
-            <input value={input.course} onChange={handleChange} 
-            type="text" name="course" placeholder="Masukan Mata Kuliah.." required/>
+    useEffect(() => {
 
-            <label>Nilai</label>
-            <input value={input.score} onChange={handleChange} min={0} max={100}
-            type="text" name="score" placeholder="Masukan Nilai.." required/>
+        if (fetchStatus === false) {
+            fetchData()
+            setFetchStatus(true)
+        }
 
-            
-            <input type="submit" value="Submit"/>
-            </form>
-        </div>
-  )
+    }, [fetchData, fetchStatus, setFetchStatus])
+
+
+
+    const handleDelete = (event) => {
+        let idMahasiswa = parseInt(event.target.value)
+
+        functionDelete(idMahasiswa)
+    }
+
+    const handleEdit = (event) => {
+        let idMahasiswa = parseInt(event.target.value)
+        history.push(`/tugas-14/edit/${idMahasiswa}`)
+        // functionUpdate(idMahasiswa)
+    }
+
+    const handleCreate = () => {
+        history.push('/tugas-14/create')
+        setInput({
+            nama: "",
+            course: "",
+            score: 0
+        })
+    }
+
+    return (
+        <div className="list">
+        <h1>Daftar Nilai Mahasiswa</h1>
+        <h6>Use Context</h6>
+        <table className="styled-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Mata Kuliah</th>
+                    <th>Nilai</th>
+                    <th>Indeks Nilai</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {dataMahasiswa !== null && (
+                    <>
+                    {dataMahasiswa.map((e, index) =>{
+                        return(
+                        <tr key={index}>
+                            <td>{index+1}</td>
+                            <td>{e.name}</td>
+                            <td>{e.course}</td>
+                            <td>{e.score}</td>
+                            <td>{getScore(e.score)}</td>
+                            <td>
+                                <button className="btn-edit" value={e.id} onClick={handleEdit}>Edit</button>
+                                <button className="btn-delete" value={e.id} onClick={handleDelete}>Delete</button>  
+                            </td>
+                        </tr>
+                        )
+                    })}
+                    </>
+                )}
+            </tbody>
+        </table>
+        <button className="btn-create" onClick={handleCreate} >Tambah Data Nilai Mahasiswa</button>
+    </div>
+    )
 }
 
-export default DataList;
+export default DataList
