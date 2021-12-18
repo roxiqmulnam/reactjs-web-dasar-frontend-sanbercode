@@ -159,3 +159,13 @@ li:hover {
     width: 55%;
     margin: 0 auto;
 }
+
+.toggle-nav{
+    right: 20px;
+    top: 15px;
+    position: absolute;
+}
+
+nav{
+    height:67px;
+}

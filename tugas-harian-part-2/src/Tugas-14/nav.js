@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext} from "./themeContext";
-
+import { Switch } from "antd";
 
 const Nav = () => {
     const {theme, setTheme} = useContext(ThemeContext)
@@ -34,11 +34,12 @@ const Nav = () => {
             <li>
             <Link to="/tugas-15"><p>Tugas 15</p></Link>
             </li>
-            <li
-            onClick={() =>{
+            <p className="toggle-nav" 
+                onClick={() =>{
                 setTheme(theme ==='navbar-dark'?'navbar-light':'navbar-dark')
-            }}><p className="btn-theme">Change Theme</p>
-            </li>
+                }}>
+            <Switch checkedChildren="Light" unCheckedChildren="Dark" defaultChecked />
+            </p>
         </ul>
     </nav>
     </header>
