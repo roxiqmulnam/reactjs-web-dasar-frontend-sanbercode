@@ -1,11 +1,10 @@
-import axios from 'axios';
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Context } from '../../config/Context'
 import './index.css'
 
 const Home = () => {
-    const { input, setInput, dataMahasiswa, functions, fetchStatus, setFetchStatus } = useContext(Context)
-    const { fetchData, getScore,  functionDelete, functionUpdate, functionEdit } = functions
+    const { dataGame, functions, fetchStatus, setFetchStatus } = useContext(Context)
+    const { fetchData} = functions
 
     useEffect(() => {
 
@@ -20,7 +19,7 @@ const Home = () => {
     <div className="main-container">
         <h1>Popular Mobile Apps</h1>
                     <>
-                    {dataMahasiswa.map((e) =>{
+                    {dataGame.map((e) =>{
                         return(
                         <div>
                         <p key={e.id}></p>

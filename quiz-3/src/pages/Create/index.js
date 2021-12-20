@@ -34,9 +34,14 @@ const CreateData = () => {
         }
 
         setInput({
-            nama: "",
-            course: "",
-            score: ""
+            name: "",
+            description: "",
+            category: "",
+            release_year: 0,
+            size: 0,
+            price: 0,
+            rating: 0,
+            image_url:""
         })
         setCurrentId(-1)
     }

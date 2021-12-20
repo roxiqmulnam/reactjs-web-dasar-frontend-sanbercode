@@ -8,7 +8,7 @@ export const Context= createContext()
 
 export const Provider = props => {
     let history = useHistory()
-    const [dataMahasiswa, setDataMahasiswa] = useState([])
+    const [dataGame, setDataGame] = useState([])
     const [input, setInput] = useState({
         name: "",
         description: "",
@@ -17,7 +17,7 @@ export const Provider = props => {
         size: 0,
         price: 0,
         rating: 0,
-        imgUrl:""
+        image_url:""
     })
     const [currentId, setCurrentId] = useState(-1)
     const [fetchStatus, setFetchStatus] = useState(false)
@@ -27,8 +27,7 @@ export const Provider = props => {
         let result = await axios.get(`http://backendexample.sanbercloud.com/api/mobile-apps`)
         let data = result.data
         console.log(data)
-        setDataMahasiswa(data.map((e, index) => {
-            let indexScore = getScore(e.score)
+        setDataGame(data.map((e, index) => {
             return {
                 no: index+1,
                 id: e.id,
@@ -44,8 +43,8 @@ export const Provider = props => {
         }))
     }
 
-    const fetchById = async (idMahasiswa) => {
-        let res = await axios.get(`http://backendexample.sanbercloud.com/api/mobile-apps/${idMahasiswa}`)
+    const fetchById = async (idList) => {
+        let res = await axios.get(`http://backendexample.sanbercloud.com/api/mobile-apps/${idList}`)
         let data = res.data
         setInput({
             id: data.id,
@@ -61,20 +60,6 @@ export const Provider = props => {
         setCurrentId(data.id)
     }
 
-    const getScore = (score) => {
-        if (score >= 80) {
-            return "A"
-        } else if (score >= 70 && score < 80) {
-            return "B"
-        } else if (score >= 60 && score < 70) {
-            return "C"
-        } else if (score >= 50 && score < 60) {
-            return "D"
-        } else {
-            return "E"
-        }
-    }
-
     const functionSubmit = () => {
         axios.post(`http://backendexample.sanbercloud.com/api/mobile-apps`, {
             name: input.name,
@@ -87,7 +72,7 @@ export const Provider = props => {
             image_url : input.image_url
         }).then((res) => {
             let data = res.data
-            setDataMahasiswa([...dataMahasiswa, {
+            setDataGame([...dataGame, {
                 id: data.id,
                 name: data.name,
                 description:data.description,
@@ -114,26 +99,26 @@ export const Provider = props => {
             rating: input.rating,
             image_url : input.image_url
         }).then((res) => {
-            let newDataMahasiswa = dataMahasiswa.find((e) => e.id === currentId)
-            newDataMahasiswa.name = input.name
-            newDataMahasiswa.category = input.category
-            newDataMahasiswa.description = input.description
-            newDataMahasiswa.release_year = input.release_year
-            newDataMahasiswa.size = input.size
-            newDataMahasiswa.price = input.price
-            newDataMahasiswa.rating = input.rating
-            newDataMahasiswa.image_url = input.image_url
-            setDataMahasiswa([...dataMahasiswa])
+            let newDataListGame = dataGame.find((e) => e.id === currentId)
+            newDataListGame.name = input.name
+            newDataListGame.category = input.category
+            newDataListGame.description = input.description
+            newDataListGame.release_year = input.release_year
+            newDataListGame.size = input.size
+            newDataListGame.price = input.price
+            newDataListGame.rating = input.rating
+            newDataListGame.image_url = input.image_url
+            setDataGame([...dataGame])
             history.push(`/mobile-list`)
             message.success('Berhasil mengupdate data')
         })
     }
 
-    const functionDelete = (idMahasiswa) => {
-        axios.delete(`http://backendexample.sanbercloud.com/api/mobile-apps/${idMahasiswa}`)
+    const functionDelete = (idListGame) => {
+        axios.delete(`http://backendexample.sanbercloud.com/api/mobile-apps/${idListGame}`)
             .then(() => {
-                let newDataMahasiswa = dataMahasiswa.filter((res) => { return res.id !== idMahasiswa })
-                setDataMahasiswa(newDataMahasiswa)
+                let newDataListGame = dataGame.filter((res) => { return res.id !== idListGame })
+                setDataGame(newDataListGame)
                 message.success('Berhasil menghapus data')
             })
     }
@@ -143,7 +128,6 @@ export const Provider = props => {
 
     const functions = {
         fetchData,
-        getScore,
         functionSubmit,
         functionUpdate,
         functionDelete,
@@ -153,8 +137,8 @@ export const Provider = props => {
 
     return (
         <Context.Provider value={{
-            dataMahasiswa,
-            setDataMahasiswa,
+            dataGame,
+            setDataGame,
             input,
             setInput,
             currentId,

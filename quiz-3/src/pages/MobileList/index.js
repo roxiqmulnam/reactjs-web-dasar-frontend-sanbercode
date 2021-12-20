@@ -8,8 +8,8 @@ const MobileList = () => {
     let history = useHistory()
 
 
-    const { input, setInput, dataMahasiswa, functions, fetchStatus, setFetchStatus } = useContext(Context)
-    const { fetchData, getScore,  functionDelete, functionUpdate, functionEdit } = functions
+    const { setInput, dataGame, functions, fetchStatus, setFetchStatus } = useContext(Context)
+    const { fetchData, functionDelete} = functions
 
     useEffect(() => {
 
@@ -29,8 +29,8 @@ const MobileList = () => {
     }
 
     const handleEdit = (event) => {
-        let idMahasiswa = parseInt(event.currentTarget.value)
-        history.push(`/mobile-list/edit/${idMahasiswa}`)
+        let idGameList = parseInt(event.currentTarget.value)
+        history.push(`/mobile-list/edit/${idGameList}`)
         // functionUpdate(idMahasiswa)
     }
 
@@ -105,7 +105,7 @@ const MobileList = () => {
         },
       ];
       
-    const data = dataMahasiswa
+    const data = dataGame
 
     return (
         <div className="list">
@@ -113,7 +113,7 @@ const MobileList = () => {
         <Button type="primary" className="btn-create" onClick={handleCreate} >
             Create Data
         </Button>
-        <Table className="table-mhs" columns={columns} dataSource={dataMahasiswa} />
+        <Table className="table-mhs" columns={columns} dataSource={data} />
 
     </div>
     )
