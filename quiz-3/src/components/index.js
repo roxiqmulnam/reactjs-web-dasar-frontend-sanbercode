@@ -4,8 +4,7 @@ import Button from "./atoms/Button";
 
 // molecules
 import Footer from "./molecules/Footer";
-import Header from "./molecules/Header";
+import Navbar  from "./molecules/Navbar";
 
 
-
-export {Button, Header, Footer}
+export {Button, Navbar, Footer}

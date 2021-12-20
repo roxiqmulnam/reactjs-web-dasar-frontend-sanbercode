@@ -1,0 +1,13 @@
+.list{
+    width: 85%;
+    margin:100px auto;
+    padding: 20px;
+}
+
+.btn-create{
+    margin-bottom: 20px;
+}
+
+input[name=score] {
+
+}

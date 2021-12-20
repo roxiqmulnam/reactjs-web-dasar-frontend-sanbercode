@@ -1,9 +1,10 @@
 import React from 'react'
+import './index.css'
 
 const Footer = () => {
     return (
-        <div>
-            <p>Ini Footer untuk copyright</p>
+        <div className='footer'>
+            <p>Quiz 3 ReactJS Sanbercode</p>
         </div>
     )
 }

@@ -85,39 +85,6 @@ const DataListNew = () => {
         </Button>
         <h6>Use Context</h6>
         <Table className="table-mhs" columns={columns} dataSource={dataMahasiswa} />
-        {/* <table className="styled-table">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Mata Kuliah</th>
-                    <th>Nilai</th>
-                    <th>Indeks Nilai</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                {dataMahasiswa !== null && (
-                    <>
-                    {dataMahasiswa.map((e, index) =>{
-                        return(
-                        <tr key={index}>
-                            <td>{index+1}</td>
-                            <td>{e.name}</td>
-                            <td>{e.course}</td>
-                            <td>{e.score}</td>
-                            <td>{getScore(e.score)}</td>
-                            <td>
-                                <button className="edit-btn" value={e.id} onClick={handleEdit}><EditOutlined /></button>
-                                <button className="delete-btn" value={e.id} onClick={handleDelete}><DeleteOutlined /></button>  
-                            </td>
-                        </tr>
-                        )
-                    })}
-                    </>
-                )}
-            </tbody>
-        </table> */}
 
     </div>
     )
