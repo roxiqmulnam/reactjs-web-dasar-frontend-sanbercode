@@ -127,12 +127,7 @@ export const Provider = props => {
         }
 
     const functions = {
-        fetchData,
-        functionSubmit,
-        functionUpdate,
-        functionDelete,
-        functionEdit,
-        fetchById
+        fetchData, functionSubmit,functionUpdate,functionDelete,functionEdit,fetchById
     }
 
     return (
