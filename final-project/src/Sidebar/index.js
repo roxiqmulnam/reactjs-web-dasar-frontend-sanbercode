@@ -5,6 +5,7 @@ import {
   LaptopOutlined,
   NotificationOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
@@ -12,20 +13,19 @@ const { Header, Content, Footer, Sider } = Layout;
 const Sidebar = () => {
   return (
     <Sider className="site-layout-background" width={200}>
-      <h1 style={{display:'inline', margin: '25px' }}>Dashboard</h1>
       <Menu
         mode="inline"
         defaultOpenKeys={["sub1"]}
         style={{ height: "100%" }}
       >
-        
+        <Menu.Item key="10"><Link to={'/dashboard'}>Dashboard</Link></Menu.Item>
         <SubMenu key="sub1" icon={<UserOutlined />} title="Data Movie">
-          <Menu.Item key="1">List Movie</Menu.Item>
-          <Menu.Item key="2">Add Movie List</Menu.Item>
+          <Menu.Item key="1"><Link to={'/list-movie'}>List Movie</Link></Menu.Item>
+          <Menu.Item key="2"><Link to={'/list-movie/create'}>Add Movie List</Link></Menu.Item>
         </SubMenu>
         <SubMenu key="sub2" icon={<LaptopOutlined />} title="Data Game">
-          <Menu.Item key="5">List Game</Menu.Item>
-          <Menu.Item key="6">Add Game List</Menu.Item>
+          <Menu.Item key="5"><Link to={'/list-game'}>List Game</Link></Menu.Item>
+          <Menu.Item key="6"><Link to={'/list-game/create'}>Add Game List</Link></Menu.Item>
         </SubMenu>
       </Menu>
     </Sider>

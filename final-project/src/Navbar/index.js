@@ -17,7 +17,7 @@ const Navbar = () => {
       className="header"
       style={{ position: "fixed", zIndex: 1, width: "100%" }}
     >
-      <img className="logo" />
+      <Link to={"/"}><p className="logo">MovieGame<span><strong>List.</strong></span></p></Link>
       <Menu theme="dark" mode="horizontal">
         <Menu.Item key="1">
           <Link to={"/"}>Home</Link>
@@ -34,6 +34,9 @@ const Navbar = () => {
           </>
         ) : (
           <>
+            <Menu.Item key="4">
+              <Link to={"/dashboard"}>Dashboard</Link>
+            </Menu.Item>
             <Menu.Item key="10" onClick={handleLogout}>
               Logout
             </Menu.Item>

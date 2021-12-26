@@ -17,11 +17,7 @@ const LayoutContent = (props) => {
     <Layout>
       <Navbar />
 
-      <Content style={{ padding: "0 50px", marginTop: 65 }}>
-        <Breadcrumb style={{ margin: "16px 0" }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-        </Breadcrumb>
-
+      <Content style={{ padding: "0 50px", marginTop: 100 }}>
         <Layout
           className="site-layout-background"
           style={{ padding: "25px 0" }}

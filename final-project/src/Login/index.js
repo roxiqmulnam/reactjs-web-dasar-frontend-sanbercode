@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Redirect, Route, useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
+import { message } from "antd";
 
 export const LoginRoute = ({ ...login }) => {
   if (Cookies.get("token") === undefined) {
@@ -50,9 +51,10 @@ export const Login = () => {
         Cookies.set("email", email, { expires: 1 });
         console.log(login);
         history.push("/dashboard");
+        message.success(`Halo ${email} !`);
       })
-      .catch((err) => {
-        alert(err);
+      .catch(() => {
+        message.error("gagal login")
       });
   };
 

@@ -13,11 +13,19 @@ code {
 }
 
 .logo {
+  text-align: center;
   float: left;
   width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
+  margin: 0 auto;
+  margin-right: 15px;
+  color: #d63838;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.logo span{
+  color: #3bbaff;
+  
 }
 
 .ant-row-rtl .logo {
@@ -44,4 +52,5 @@ code {
   align-items: baseline;
   flex-direction: row;
   gap: 50px;
+  margin-bottom: 50px;
 }

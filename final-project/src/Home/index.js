@@ -100,7 +100,7 @@ export const Home = () => {
     if (text === undefined) {
       return " ";
     } else {
-      return text.slice(0, 100) + " ...";
+      return text.slice(0, 100) + "...";
     }
   };
 
@@ -150,17 +150,11 @@ export const Home = () => {
                       style={{ width: 250 }}
                       cover={<img alt={e.name} src={e.image_url} />}
                     >
-                      <Rate
-                        style={{ margin: "10px" }}
-                        disabled
-                        allowHalf
-                        defaultValue={e.rating / 2}
-                      />{" "}
-                      {e.release}/10
+                      <p>{e.release}</p>
                       <Meta
                         style={{ textAlign: "justify" }}
                         title={e.name}
-                        description={viewMore(e.platform)}
+                        description={e.platform}
                       />
                     </Card>
                   </Link>
