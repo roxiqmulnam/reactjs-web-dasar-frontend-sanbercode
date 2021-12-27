@@ -1,16 +1,11 @@
 import React from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-} from "@ant-design/icons";
+import { Layout, Menu} from "antd";
 import Navbar from "../Navbar";
 import Sidebar from "../Sidebar";
 import Cookies from "js-cookie";
 
 const { SubMenu } = Menu;
-const { Header, Content, Footer, Sider } = Layout;
+const {Content, Footer} = Layout;
 
 const LayoutContent = (props) => {
   return (

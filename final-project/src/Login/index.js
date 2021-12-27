@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Redirect, Route, useHistory } from "react-router-dom";
+import { Link, Redirect, Route, useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 import { message } from "antd";
 
@@ -54,29 +54,37 @@ export const Login = () => {
         message.success(`Halo ${email} !`);
       })
       .catch(() => {
-        message.error("gagal login")
+        message.error("gagal login");
       });
   };
 
+
   return (
     <>
-      <form onSubmit={handleLogin}>
+      <form className="form-input" onSubmit={handleLogin}>
+        <h1 style={{textAlign:"center"}}>Login</h1>
+        <label>Email:</label>
         <input
           value={input.email}
           onChange={handleChange}
           required
+          placeholder="Masukan email..."
           type={"text"}
           name="email"
         />
+        <label>Password:</label>
         <input
           value={input.password}
           onChange={handleChange}
           required
+          placeholder="Password..."
           type={"password"}
           name="password"
         />
         <input type={"submit"} value={"Login"} />
+        <p>Don't have an account yet? <Link to={"/register"}>Register Here</Link></p>
       </form>
     </>
+    
   );
 };

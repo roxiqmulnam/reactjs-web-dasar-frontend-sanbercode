@@ -3,7 +3,7 @@ import axios from "axios";
 import { UserContext } from "../UserContext";
 import Cookies from "js-cookie";
 import { message } from "antd";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Register = () => {
   let history = useHistory();
@@ -19,9 +19,9 @@ const Register = () => {
         password: input.password,
       })
       .then((res) => {
-        var user = res.data.user;
-        var token = res.data.token;
-        var currentUser = { name: user.name, email: user.email, token };
+        let user = res.data.user;
+        let token = res.data.token;
+        let currentUser = { name: user.name, email: user.email, token };
         setUser(currentUser);
         Cookies.set("user", currentUser, { expires: 1 });
         history.push("/login");
@@ -40,24 +40,22 @@ const Register = () => {
 
   return (
     <>
-      <div style={{ margin: "0 auto", width: "25%", padding: "50px" }}>
-        <form onSubmit={handleSubmit}>
-          <label>name: </label>
+        <form className="form-input" onSubmit={handleSubmit}>
+          <h1 style={{textAlign:"center"}}>Register</h1>
+          <label>Name:</label>
           <input
             type="text"
             name="name"
             onChange={handleChange}
             value={input.name}
           />
-          <br />
-          <label>email: </label>
+          <label>Email:</label>
           <input
-            type="email"
+            type="text"
             name="email"
             onChange={handleChange}
             value={input.email}
           />
-          <br />
           <label>Password: </label>
           <input
             type="password"
@@ -65,10 +63,9 @@ const Register = () => {
             onChange={handleChange}
             value={input.password}
           />
-          <br />
-          <button>Register</button>
+          <input type={"submit"} value={"Register"} />
+          <p>Have an account? <Link to={"/login"}>Login Here</Link></p>
         </form>
-      </div>
     </>
   );
 };

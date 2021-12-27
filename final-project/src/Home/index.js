@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { Card, Rate } from "antd";
+import { Card, Rate, Divider } from "antd";
 
 const { Meta } = Card;
 
@@ -107,8 +107,10 @@ export const Home = () => {
   return (
     <>
       <div className="movie-container">
+      
         {listMovie !== null && (
-          <>
+          <> 
+          <Divider>Movie</Divider>
             {listMovie.map((e) => {
               return (
                 <div key={e.id}>
@@ -141,6 +143,7 @@ export const Home = () => {
       <div className="game-container">
         {listGame !== null && (
           <>
+          <Divider>Game</Divider>
             {listGame.map((e) => {
               return (
                 <div key={e.id}>

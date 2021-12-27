@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Table, Space, Image, Tag } from "antd";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { Link, useHistory } from "react-router-dom";
+import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 
 export const ListGame = () => {
   let history = useHistory();
@@ -215,13 +215,11 @@ export const ListGame = () => {
       title: "Genre",
       dataIndex: "genre",
       key: "genre",
-      sorter: (a, b) => a.genre - b.genre,
     },
     {
       title: "Platform",
       dataIndex: "platform",
       key: "platform",
-      sorter: (a, b) => a.platform - b.platform,
       render: (platform) => {
         const tags = platform.split(",");
         return (
@@ -245,18 +243,16 @@ export const ListGame = () => {
       title: "Single player",
       dataIndex: "singlePlayer",
       key: "singlePlayer",
-      sorter: (a, b) => a.singlePlayer - b.singlePlayer,
       render: (single) => {
-        return single == 1 ? "1 player" : "false";
+        return single === 1 ? "1 player" : "-";
       },
     },
     {
       title: "Multi Player",
       dataIndex: "multiplayer",
       key: "multiplayer",
-      sorter: (a, b) => a.multiplayer - b.multiplayer,
       render: (multi) => {
-        return multi == 1 ? "up to 2+ player" : "-";
+        return multi === 1 ? "up to 2+ player" : "-";
       },
     },
 
@@ -305,7 +301,7 @@ export const ListGame = () => {
         Reset Filter
       </button> */}
 
-      <form onSubmit={handleSearch}>
+      <form className="form-search" onSubmit={handleSearch}>
         <input
           onChange={handleChange}
           value={inputSearch}
@@ -314,6 +310,17 @@ export const ListGame = () => {
         />
         <input type="submit" value="Search" />
       </form>
+      <button style={{marginLeft:10, padding:'0 10px 0 10px', marginBottom: 10}}
+        onClick={() => {
+          setfetchStatsGame(true);
+        }}
+      >
+        Reset
+      </button>
+      <button style={{border:'none', borderRadius:'6px', backgroundColor: '#3db2ff', float:"right", padding:'5px 15px 5px 15px', marginBottom: 10}}
+      >
+        <Link style={{color:'white'}} to={'/list-game/create'}><PlusOutlined /> Create New List</Link>
+      </button>
       <Table rowKey="id" columns={columns} dataSource={data} />
     </>
   );

@@ -1,32 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Table, Space, Image, Tag } from "antd";
 import {
   EditOutlined,
   DeleteOutlined,
   ClockCircleOutlined,
+  PlusOutlined,
 } from "@ant-design/icons";
 
 export const ListMovie = () => {
   let history = useHistory();
   const [listMovie, setlistMovie] = useState([]);
   const [fetchStatsMovie, setfetchStatsMovie] = useState(true);
-
-
-  const [inputMovie, setInputMovie] = useState({
-    description: "",
-    duration: "",
-    genre: "",
-    image_url: "",
-    rating: "",
-    review: "",
-    title: "",
-    year: "",
-})
-  const [currentId, setCurrentId] = useState(-1)
-
-
   const [inputSearch, setInputSearch] = useState("");
   const [inputFilter, setInputfilter] = useState({
     rating: "",
@@ -39,9 +25,10 @@ export const ListMovie = () => {
       let resultMovie = await axios.get(
         "https://backendexample.sanbersy.com/api/data-movie"
       );
+      let { data } = resultMovie;
 
       setlistMovie(
-        resultMovie.data.map((dataMovie) => {
+        data.map((dataMovie) => {
           let {
             description,
             duration,
@@ -73,28 +60,12 @@ export const ListMovie = () => {
       getMovie();
       setfetchStatsMovie(false);
     }
-  }, [fetchStatsMovie, setfetchStatsMovie]);
-  
-  const handleDelete = (e) => {
-    let dataId = parseInt(e.target.value)
-    axios.delete(`https://backendexample.sanbersy.com/api/data-movie/${dataId}`)
-    .then((e) => {
-      setfetchStatsMovie(true)
-    })
-    setCurrentId(-1)
-}
-
+  }, [listMovie, setlistMovie, fetchStatsMovie, setfetchStatsMovie]);
 
   const handleEdit = (event) => {
     let idMovieList = parseInt(event.currentTarget.value);
     history.push(`/list-movie/edit/${idMovieList}`);
-    axios.get(
-      `https://backendexample.sanbersy.com/api/data-movie/${idMovieList}`
-    ).then((res) =>{
-      let data = res.data
-      setInputMovie(data)
-      setCurrentId(data.id)
-    })
+
   };
 
   const columns = [
@@ -184,7 +155,7 @@ export const ListMovie = () => {
           <button
             style={{ backgroundColor: "#ff9696", cursor: "pointer" }}
             value={e.id}
-            onClick={handleDelete}
+            onClick={handleEdit}
           >
             <DeleteOutlined />
           </button>
@@ -195,7 +166,7 @@ export const ListMovie = () => {
 
   const data = listMovie;
 
-  const handleChangeSearch = (e) => {
+  const handleChange = (e) => {
     let { value } = e.target;
 
     setInputSearch(value);
@@ -344,44 +315,53 @@ export const ListMovie = () => {
 
   return (
     <>
-      <form onSubmit={handleFilterData}>
-        <input
+      <form className="form-filter" onSubmit={handleFilterData}>
+        <input className="input-filter"
           onChange={handleFilter}
           value={inputFilter.rating}
           type="text"
           name="rating"
+          placeholder="rating..."
         />
         <input
           onChange={handleFilter}
           value={inputFilter.year}
           type="text"
           name="year"
+          placeholder="year..."
         />
         <input
           onChange={handleFilter}
           value={inputFilter.duration}
           type="text"
           name="duration"
+          placeholder="duration..."
         />
         <input type="submit" value="Filter" />
+
       </form>
-      <button
+
+      <form className="form-search" onSubmit={handleSearch}>
+        <input
+          onChange={handleChange}
+          value={inputSearch}
+          type="text"
+          name="title"
+          placeholder="search..."
+        />
+        <input type="submit" value="Search" />
+      </form>
+      <button style={{marginLeft:10, padding:'0 10px 0 10px', marginBottom: 10}}
         onClick={() => {
           setfetchStatsMovie(true);
         }}
       >
-        Reset Filter
+        Reset
       </button>
-
-      <form onSubmit={handleSearch}>
-        <input
-          onChange={handleChangeSearch}
-          value={inputSearch}
-          type="text"
-          name="title"
-        />
-        <input type="submit" value="Search" />
-      </form>
+      <button style={{border:'none', borderRadius:'6px', backgroundColor: '#3db2ff', float:"right", padding:'5px 15px 5px 15px', marginBottom: 10}}
+      >
+        <Link style={{color:'white'}} to={'/list-movie/create'}><PlusOutlined /> Create New List</Link>
+      </button>
       <Table rowKey="id" columns={columns} dataSource={data} />
     </>
   );

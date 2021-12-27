@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
 
 const Dashboard = () => {
-    return (
-        <>
-        Jumlah Movie dan Jumlah Game List
-        </>
-    )
-}
+  return (
+    <>
+    <div>List Movie</div>
+    
+    <div>List Game</div>
+    
+    </>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

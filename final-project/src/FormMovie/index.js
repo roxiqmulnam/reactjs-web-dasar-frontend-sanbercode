@@ -27,9 +27,9 @@ export const FormMovie = () => {
     }
   }, []);
 
-  const fetchById = async (idMahasiswa) => {
+  const fetchById = async (idMovie) => {
     let res = await axios.get(
-      `https://backendexample.sanbersy.com/api/data-movie/${idMahasiswa}`
+      `https://backendexample.sanbersy.com/api/data-movie/${idMovie}`
     );
     let data = res.data;
     setInput({
@@ -135,8 +135,8 @@ export const FormMovie = () => {
 
   return (
     <div className="list">
-      <h1>Add Movie</h1>
-      <form method="post" onSubmit={handleSubmit} className="form-input">
+      <h1 style={{textAlign:"center"}}>Form Movie</h1>
+      <form method="post" onSubmit={handleSubmit} className="form-add">
         <label>Nama</label>
         <input
           value={input.title}
@@ -157,23 +157,73 @@ export const FormMovie = () => {
           required
         />
 
-        <label>year</label>
+        <label>Year</label>
         <input
           value={input.year}
           onChange={handleChange}
-          min={0}
-          max={100}
+          min={2007}
+          max={2021}
           type="text"
           name="year"
           placeholder="Masukan.."
           required
         />
+        <label>Duration</label>
+        <input
+          value={input.duration}
+          onChange={handleChange}
+          min={10}
+          max={500}
+          type="text"
+          name="duration"
+          placeholder="Masukan.."
+          required
+        />
+        <label>Genre</label>
+        <input
+          value={input.genre}
+          onChange={handleChange}
+          type="text"
+          name="genre"
+          placeholder="Masukan.."
+          required
+        />
+        <label>Rating</label>
+        <input
+          value={input.rating}
+          onChange={handleChange}
+          min={1}
+          max={10}
+          type="text"
+          name="rating"
+          placeholder="Masukan.."
+          required
+        />
+        <label>Review</label>
+        <input
+          value={input.review}
+          onChange={handleChange}
+          type="text"
+          name="review"
+          placeholder="Masukan.."
+          required
+        />
+        <label>Image URL</label>
+        <input
+          value={input.image_url}
+          onChange={handleChange}
+          type="text"
+          name="image_url"
+          placeholder="Masukan.."
+          required
+        />
 
-        <input type="submit" />
-      </form>
-      <Link to="/list-movie">
-        <button className="btn-back">Kembali</button>
+        <input type="submit" value="submit" />
+        <Link to="/list-movie">
+        Go to List Movie
       </Link>
+      </form>
+
     </div>
   );
 };
