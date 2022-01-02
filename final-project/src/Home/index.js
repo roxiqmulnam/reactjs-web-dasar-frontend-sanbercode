@@ -100,7 +100,7 @@ export const Home = () => {
     if (text === undefined) {
       return " ";
     } else {
-      return text.slice(0, 100) + "...";
+      return text?.slice(0, 100) + "...";
     }
   };
 

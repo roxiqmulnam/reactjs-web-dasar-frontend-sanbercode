@@ -89,7 +89,7 @@ export const ListMovie = () => {
         if (text === undefined) {
           return " ";
         } else {
-          return text.slice(0, 50) + "...";
+          return text?.slice(0, 50) + "...";
         }
       },
     },
