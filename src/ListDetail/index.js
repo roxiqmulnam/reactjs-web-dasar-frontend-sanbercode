@@ -46,7 +46,7 @@ export const ListDetail = () => {
         setfetchStatsMovie(false);
       }
     }
-  }, []);
+  }, [fetchStatsMovie]);
 
   
   const [listGame, setlistGame] = useState([]);
@@ -86,7 +86,7 @@ export const ListDetail = () => {
         setfetchStatsMovie(false);
       }
     }
-  }, []);
+  }, [fetchStatsMovie]);
   
 
   return (

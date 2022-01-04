@@ -1,10 +1,9 @@
 import React from "react";
-import { Layout, Menu} from "antd";
+import { Layout} from "antd";
 import Navbar from "../Navbar";
 import Sidebar from "../Sidebar";
 import Cookies from "js-cookie";
 
-const { SubMenu } = Menu;
 const {Content, Footer} = Layout;
 
 const LayoutContent = (props) => {

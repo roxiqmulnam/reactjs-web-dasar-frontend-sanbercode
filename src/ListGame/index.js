@@ -10,10 +10,10 @@ export const ListGame = () => {
   const [fetchStatsGame, setfetchStatsGame] = useState(true);
 
   const [inputSearch, setInputSearch] = useState("");
-  const [inputFilter, setInputfilter] = useState({
-    release: "",
-    genre:""
-  });
+  // const [inputFilter, setInputfilter] = useState({
+  //   release: "",
+  //   genre:""
+  // });
 
   useEffect(() => {
     const getGame = async () => {
